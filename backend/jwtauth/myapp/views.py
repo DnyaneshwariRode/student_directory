@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
 
 def login_page(request):
-    return render(request,'myapp/index.html')
+    return render(request,'myapp/login.html')
 
 
 class RegisterView(generics.CreateAPIView):

@@ -1,0 +1,174 @@
+/* Two-column contact page layout */
+.contact-container {
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+/* Left Section */
+.contact-left {
+    width: 50%;
+    color: #1E3A5F;
+}
+
+.contact-left h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Right Section */
+.contact-right {
+    width: 50%;
+}
+
+.contact-right h3 {
+    font-size: 24px;
+    color: #1E3A5F;
+    margin-bottom: 15px;
+}
+
+/* Form fields */
+.contact-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-right input,
+.contact-right textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #61A5FF;
+    background: #D0E8FF;
+    font-size: 16px;
+    color: #1E3A5F;
+}
+
+/* Submit button */
+.contact-right button {
+    background: #3C8DFF;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.contact-right button:hover {
+    background: #1E3A5F;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-left,
+    .contact-right {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* Wrapper for both cards */
+.contact-wrapper {
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* The cards */
+.contact-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 460px;
+
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid #D0E8FF;
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 25px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    color: #1E3A5F;
+}
+
+/* Headings */
+.contact-card h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+/* Links */
+.contact-card a {
+    color: #3C8DFF;
+    font-weight: 600;
+}
+
+/* Form inside right card */
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-card input,
+.contact-card textarea {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #61A5FF;
+    background: #D0E8FF;
+    font-size: 16px;
+    color: #1E3A5F;
+}
+
+.contact-card button {
+    background: #3C8DFF;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-card button:hover {
+    background: #1E3A5F;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
