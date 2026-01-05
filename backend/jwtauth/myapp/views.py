@@ -9,6 +9,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
 
+def login_page(request):
+    return render(request,'myapp/index.html')
+
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -37,7 +40,7 @@ class LoginView(generics.GenericAPIView):
         
 
 class DashboardView(APIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         user = request.user
         user_serializer = UserSerializer(user)        

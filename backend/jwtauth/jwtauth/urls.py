@@ -20,9 +20,11 @@ from rest_framework_simplejwt.views import(
     TokenObtainPairView,
     TokenRefreshView
 )
-from myapp.views import RegisterSerializer, LoginSerializer, UserSerializer, DashboardView, LoginView, RegisterView
+from myapp.views import RegisterSerializer, LoginSerializer, UserSerializer, DashboardView, LoginView, RegisterView, login_page
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/',login_page),
+    path('api/login/', TokenObtainPairView.as_view()),
     path('api/auth/login/',LoginView.as_view(),name='auth_login'),
     path('api/auth/register/',RegisterView.as_view(),name='auth_register'),
     path('api/token',TokenObtainPairView.as_view,name='token_obtain_pair'),
