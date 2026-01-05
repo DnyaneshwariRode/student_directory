@@ -12,6 +12,12 @@ from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
 def login_page(request):
     return render(request,'myapp/login.html')
 
+def semester(request):
+    return render(request,'myapp/semester.html')
+
+def index(request):
+    return render(request,'myapp/index.html')
+
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
