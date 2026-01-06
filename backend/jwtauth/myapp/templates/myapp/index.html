@@ -39,7 +39,7 @@
 
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="semester.html">Semester</a></li>
+            <li><a href="{% url 'myapp:semester' %}">Semester</a></li>
             <li><a href="help.html">Help</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -124,6 +124,6 @@
 
 
 
-    <script src="js/indexScript.js"></script>
+    <script src="{% static 'myapp/js/indexScript.js' %}"></script>
 </body>
 </html>
