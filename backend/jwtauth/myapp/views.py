@@ -18,6 +18,14 @@ def semester(request):
 def index(request):
     return render(request,'myapp/index.html')
 
+def about(request):
+    return render(request,'myapp/about.html')
+
+def help(request):
+    return render(request,'myapp/help.html')
+
+def contact(request):
+    return render(request,'myapp/contact.html')
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()

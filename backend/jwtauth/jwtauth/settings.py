@@ -15,14 +15,13 @@ import os
 from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / ".env")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  os.getenv('django-insecure-mtefp=d=o+y8kvkb&9w_6231u@t=a!5ffci3wh8f_=$!qdfg-^')
+SECRET_KEY = 'django-insecure-mtefp=d=o+y8kvkb&9w_6231u@t=a!5ffci3wh8f_=$!qdfg-^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -92,11 +91,11 @@ WSGI_APPLICATION = 'jwtauth.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('postgres'),
-        'USER': os.getenv('postgres'),
-        'PASSWORD': os.getenv('chetan@2005-21/'),
-        'HOST': os.getenv('db.cmltqhabkknzvorptjjk.supabase.co'),
-        'PORT': os.getenv('5432'),
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'chetan@2005-21/',
+        'HOST': 'db.cmltqhabkknzvorptjjk.supabase.co',
+        'PORT': '5432',
     }
 }
 
