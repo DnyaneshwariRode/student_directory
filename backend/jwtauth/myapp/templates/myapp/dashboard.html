@@ -36,10 +36,11 @@
 <nav id="sideMenu">
     <span class="close-btn" id="closeMenu">×</span>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Semester</a></li>
-        <li><a href="#">Notes</a></li>
-        <li><a href="#">Assignments</a></li>
+        <li><a href="{% url 'myapp:index' %}">Home</a></li>
+      <li><a href="{% url 'myapp:semester' %}">Semester</a></li>
+      <li><a href="{% url 'myapp:help' %}">Help</a></li> 
+      <li><a href="{% url 'myapp:about' %}">About</a></li>
+      <li><a href="{% url 'myapp:contact' %}">Contact</a></li>
         <li><a href="#">Profile</a></li>
     </ul>
 </nav>
