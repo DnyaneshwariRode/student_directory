@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Your existing CSS -->
+    
+    <link rel="stylesheet" href="{% static 'myapp/css/indexStyle.css' %}">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <div class="logo">
+        <h2>Student Dashboard</h2>
+        <p id="username">Loading...</p>
+    </div>
+
+    <div class="header-actions">
+        <button id="darkToggle">🌙</button>
+        <a href="#" id="logoutBtn" class="login">
+            <i class='bx bx-log-out'></i>
+        </a>
+    </div>
+</header>
+
+<!-- ===== SIDEBAR ===== -->
+<nav id="sideMenu">
+    <span class="close-btn" id="closeMenu">×</span>
+    <ul>
+        <li><a href="{% url 'myapp:index' %}">Home</a></li>
+      <li><a href="{% url 'myapp:semester' %}">Semester</a></li>
+      <li><a href="{% url 'myapp:help' %}">Help</a></li> 
+      <li><a href="{% url 'myapp:about' %}">About</a></li>
+      <li><a href="{% url 'myapp:contact' %}">Contact</a></li>
+        <li><a href="#">Profile</a></li>
+    </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <button class="section-btn">Quick Access</button>
+
+    <div class="hero-buttons">
+        <button>📘 Semesters</button>
+        <button>📚 Notes</button>
+        <button>📝 Assignments</button>
+    </div>
+</section>
+
+<!-- ===== NOTIFICATION ===== -->
+<div class="notification-bar">
+    <span>📢 Welcome to your dashboard</span>
+    <button class="close-note">✖</button>
+</div>
+
+<!-- ===== SNAPSHOT ===== -->
+<section class="snapshot">
+    <h2>Your Overview</h2>
+    <div class="snapshot-cards">
+        <div class="snap-card">
+            Total Subjects
+            <p>6</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CARDS ===== -->
+<div class="card-container">
+    <div class="card">
+        <i class='bx bx-book'></i>
+        Notes
+        <div class="btn-group">
+            <a class="preview-btn">View</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <i class='bx bx-edit'></i>
+        Assignments
+        <div class="btn-group">
+            <a class="preview-btn">View</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <i class='bx bx-calendar'></i>
+        Exams
+        <div class="btn-group">
+            <a class="preview-btn">View</a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== RECENT ===== -->
+<section class="recent">
+    <h2>Recent Activity</h2>
+    <ul>
+        <li>Math Assignment Uploaded</li>
+        <li>Physics Notes Updated</li>
+        <li>Semester 3 Activated</li>
+    </ul>
+</section>
+
+<script src="{% static 'myapp/js/dashboard.js' %}"></script>
+<script src="{% static 'myapp/js/indexScript' %}"></script>
+
+<!-- ===== BASIC UI JS ===== -->
+<script>
+    // Sidebar
+    const menuToggle = document.getElementById("menuToggle");
+    const sideMenu = document.getElementById("sideMenu");
+    const closeMenu = document.getElementById("closeMenu");
+
+    menuToggle.onclick = () => sideMenu.classList.add("active");
+    closeMenu.onclick = () => sideMenu.classList.remove("active");
+
+    // Dark mode
+    document.getElementById("darkToggle").onclick = () => {
+        document.body.classList.toggle("dark");
+    };
+</script>
+
+</body>
+</html>
