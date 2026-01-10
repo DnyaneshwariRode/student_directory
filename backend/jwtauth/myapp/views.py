@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken 
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, TeacherSerializer
 
 def login_page(request):
     return render(request,'myapp/login.html')
@@ -52,6 +52,11 @@ class LoginView(generics.GenericAPIView):
         else:
             return Response({'details':'invalide creadite'},status=401)
         
+
+class TeacherView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    permission_classes = (AllowAny,)
+    serializer_class = TeacherSerializer
 
 class DashboardView(APIView):
     permission_classes = [IsAuthenticated]
