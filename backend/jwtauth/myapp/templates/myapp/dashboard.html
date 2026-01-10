@@ -110,6 +110,43 @@
     </ul>
 </section>
 
+<!-- attendance live tracker -->
+<section class="attendance-section">
+    <div class="attendance-overlay"></div>
+
+    <div class="attendance-content">
+        <h2>📊 Live Attendance Tracker</h2>
+
+        <div class="attendance-stats">
+            <div class="stat-box">
+                <span>Total Lectures</span>
+                <h3 id="totalLectures">0</h3>
+            </div>
+
+            <div class="stat-box">
+                <span>Present</span>
+                <h3 id="presentLectures">0</h3>
+            </div>
+
+            <div class="stat-box">
+                <span>Absent</span>
+                <h3 id="absentLectures">0</h3>
+            </div>
+        </div>
+
+        <div class="attendance-percentage">
+            Attendance: <span id="attendancePercent">0%</span>
+        </div>
+
+        <div class="attendance-actions">
+            <button onclick="markPresent()">✅ Mark Present</button>
+            <button onclick="markAbsent()">❌ Mark Absent</button>
+            <button onclick="resetAttendance()">🔄 Reset</button>
+        </div>
+    </div>
+</section>
+
+
 <script src="{% static 'myapp/js/dashboard.js' %}"></script>
 <script src="{% static 'myapp/js/indexScript' %}"></script>
 
