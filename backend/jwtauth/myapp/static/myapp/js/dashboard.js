@@ -35,3 +35,50 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.clear();
     window.location.href = "/login/";
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+let totalLectures = 0;
+let presentLectures = 0;
+let absentLectures = 0;
+
+function updateAttendanceUI() {
+    document.getElementById("totalLectures").innerText = totalLectures;
+    document.getElementById("presentLectures").innerText = presentLectures;
+    document.getElementById("absentLectures").innerText = absentLectures;
+
+    let percentage = totalLectures === 0
+        ? 0
+        : ((presentLectures / totalLectures) * 100).toFixed(2);
+
+    document.getElementById("attendancePercent").innerText = percentage + "%";
+}
+
+function markPresent() {
+    totalLectures++;
+    presentLectures++;
+    updateAttendanceUI();
+}
+
+function markAbsent() {
+    totalLectures++;
+    absentLectures++;
+    updateAttendanceUI();
+}
+
+function resetAttendance() {
+    totalLectures = 0;
+    presentLectures = 0;
+    absentLectures = 0;
+    updateAttendanceUI();
+}
