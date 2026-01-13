@@ -82,3 +82,74 @@ function resetAttendance() {
     absentLectures = 0;
     updateAttendanceUI();
 }
+
+
+
+
+
+
+/* ===============================
+   ROLE-BASED ACCESS CONTROL
+================================ */
+const role = localStorage.getItem("role");
+
+if (role !== "teacher") {
+  alert("Access Denied: Teachers only");
+  window.location.href = "/login.html"; // change if needed
+}
+
+/* ===============================
+   HEATMAP LOGIC
+================================ */
+const heatmap = document.getElementById("heatmap");
+const monthsDiv = document.getElementById("months");
+const DAYS = 365;
+
+let attendance = JSON.parse(localStorage.getItem("attendance")) || {};
+
+function dateKey(date) {
+  return date.toISOString().split("T")[0];
+}
+
+function renderMonths() {
+  monthsDiv.innerHTML = "";
+  const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  for (let i = 0; i < 12; i++) {
+    const span = document.createElement("span");
+    span.textContent = monthNames[(new Date().getMonth() - i + 12) % 12];
+    monthsDiv.appendChild(span);
+  }
+}
+
+function renderHeatmap() {
+  heatmap.innerHTML = "";
+
+  for (let i = DAYS; i >= 0; i--) {
+    const date = new Date();
+    date.setDate(date.getDate() - i);
+
+    const key = dateKey(date);
+    const count = attendance[key] || 0;
+
+    const day = document.createElement("div");
+    day.classList.add("day");
+
+    if (count > 0) {
+      day.classList.add(`l${Math.min(count, 4)}`);
+    }
+
+    day.title = `${key} | Attendance: ${count}`;
+
+    day.addEventListener("click", () => {
+      attendance[key] = (attendance[key] || 0) + 1;
+      localStorage.setItem("attendance", JSON.stringify(attendance));
+      renderHeatmap();
+    });
+
+    heatmap.appendChild(day);
+  }
+}
+
+renderMonths();
+renderHeatmap();
