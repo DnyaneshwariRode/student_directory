@@ -6,6 +6,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id','username','email')
 
+class TeacherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','username','email')
+
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -18,6 +23,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             validated_data['password'],
         )
         return user
+    
+
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField(required = True)
