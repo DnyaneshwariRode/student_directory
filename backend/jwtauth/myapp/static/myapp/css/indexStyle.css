@@ -1,6 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --glass-bg: rgba(20, 40, 80, 0.85);
+    --glass-bg-strong: rgba(20, 40, 80, 0.95);
+    --glass-border: rgba(255,255,255,0.2);
+    --text-light: #E6F4FF;
+    --accent: #8AB8FF;
+    --accent-dark: #3C8DFF;
+
+    /* Z-INDEX LAYERS */
+    --z-base: 1;
+    --z-dropdown: 1000;
+    --z-sidebar: 2000;
+    --z-header: 3000;
+}
+
+/* =========================
    GLOBAL RESET
 ========================= */
 * {
@@ -10,32 +28,40 @@
     font-family: "Poppins", sans-serif;
 }
 
-/* =========================
-   PAGE BACKGROUND
-   */
 html, body {
     min-height: 100%;
 }
 
 body {
-    background-image: url("https://i.ibb.co/yF67x32j/download-7.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    color: var(--text-light);
+    background: url("https://i.ibb.co/yF67x32j/download-7.jpg") center / cover no-repeat;
 }
+
+/* =========================
+   GLASS UTILITY
+========================= */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+}
+
 /* =========================
    HEADER
 ========================= */
 .header {
     height: 80px;
-    background: rgba(20, 40, 80, 0.85);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
 
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--glass-border);
 }
 
 .logo {
@@ -48,19 +74,31 @@ body {
     width: 190px;
 }
 
+.menu-toggle,
+#darkToggle {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
 .menu-toggle {
     position: absolute;
     left: 20px;
-    background: rgba(255,255,255,0.15);
-    border: none;
     padding: 10px 14px;
     border-radius: 12px;
-    color: white;
     font-size: 22px;
-    cursor: pointer;
 }
 
-.menu-toggle:hover {
+#darkToggle {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.menu-toggle:hover,
+#darkToggle:hover {
     background: rgba(255,255,255,0.25);
 }
 
@@ -78,30 +116,22 @@ body {
     text-decoration: none;
 }
 
-#darkToggle {
-    background: rgba(255,255,255,0.15);
-    border: none;
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-size: 20px;
-    cursor: pointer;
-    color: white;
-}
-
 /* =========================
    SIDEBAR
 ========================= */
 #sideMenu {
     width: 250px;
     height: 100vh;
-    background: rgba(20,40,80,0.85);
-    backdrop-filter: blur(14px);
     position: fixed;
     top: 0;
     left: 0;
+    z-index: var(--z-sidebar);
+
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+
     transform: translateX(-260px);
-    transition: 0.4s ease;
-    z-index: 9999;
+    transition: transform 0.35s ease;
     padding-top: 80px;
 }
 
@@ -115,27 +145,26 @@ body {
     right: 20px;
     font-size: 30px;
     cursor: pointer;
-    color: white;
 }
 
 #sideMenu ul {
     list-style: none;
 }
 
-#sideMenu ul li a {
+#sideMenu a {
     display: block;
     padding: 16px 28px;
+    color: var(--text-light);
     text-decoration: none;
-    color: #E6F4FF;
-    font-size: 17px;
+    transition: background 0.25s ease;
 }
 
-#sideMenu ul li a:hover {
+#sideMenu a:hover {
     background: rgba(255,255,255,0.15);
 }
 
 /* =========================
-   DASHBOARD LAYOUT
+   DASHBOARD
 ========================= */
 .dashboard {
     max-width: 1200px;
@@ -147,51 +176,60 @@ body {
 }
 
 /* =========================
-   DROPDOWN (SEMESTER)
+   DROPDOWN
 ========================= */
 .top-center {
     display: flex;
     justify-content: center;
     position: relative;
-    z-index: 5000;
-    overflow: visible;
+    z-index: var(--z-dropdown);
 }
 
 .dropdown {
     position: relative;
-    z-index: 6000;
 }
 
 .dropbtn {
-    background: rgba(20, 40, 80, 0.85);
-    color: #E6F4FF;
     padding: 14px 28px;
     border-radius: 14px;
     border: none;
     font-size: 18px;
     cursor: pointer;
+
+    color: var(--text-light);
+    background: var(--glass-bg);
     backdrop-filter: blur(14px);
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
-    z-index: 7000;
-    margin-top: 10px;
-    background: rgba(20,40,80,0.95);
+    min-width: 220px;
+
+    background: var(--glass-bg-strong);
     border-radius: 14px;
     overflow: hidden;
-    min-width: 220px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
-.show {
+.dropdown-content a {
     display: block;
+    padding: 14px 18px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.2s ease;
 }
 
+.dropdown-content a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.dropdown-content.show {
+    display: block;
+}
 
 /* =========================
    MAIN BUTTONS
@@ -203,26 +241,28 @@ body {
     gap: 18px;
     padding: 22px;
     border-radius: 22px;
-    background: rgba(20, 40, 80, 0.85);
+
+    background: none;
     backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.2);
-    position: relative;
-    z-index: 1;
+    border: 1px solid var(--glass-border);
 }
 
 .main-buttons button {
-    background: rgba(138,184,255,0.85);
+    background: var(--accent);
     color: #0A2540;
     padding: 14px 26px;
     border-radius: 16px;
     border: none;
     font-size: 17px;
-    cursor: pointer;
     font-weight: 600;
+    cursor: pointer;
+
+    transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .main-buttons button:hover {
-    transform: scale(1.08);
+    background: var(--accent-dark);
+    transform: translateY(-2px);
 }
 
 /* =========================
@@ -234,37 +274,42 @@ body {
     gap: 28px;
     padding: 30px;
     border-radius: 26px;
-    background: rgba(20, 40, 80, 0.85);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.2);
-    position: relative;
-    z-index: 1;
+
+    background: transparent;
+    backdrop-filter: none;
+    border: 1px solid var(--glass-border);;
 }
 
 /* =========================
    CARDS
 ========================= */
 .card {
-    background: rgba(20, 40, 80, 0.85);
+    background: transparent;
+    /* background: var(--glass-bg); */
     backdrop-filter: blur(14px);
-    border-radius: 22px;
+  /*  border-radius: 22px; */
     padding: 26px;
-    color: #F8FAFC;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
     text-align: center;
-    transition: 0.35s ease;
+
+    box-shadow: none;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-8px) scale(1.06);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
 }
 
 .card i {
     font-size: 48px;
-    color: #8AB8FF;
+    color: var(--accent);
     margin-bottom: 12px;
 }
 
+/* =========================
+   CARD BUTTONS
+========================= */
 .btn-group {
     display: flex;
     justify-content: center;
@@ -276,24 +321,24 @@ body {
 .download-btn {
     padding: 8px 14px;
     border-radius: 10px;
-    text-decoration: none;
     font-size: 14px;
     font-weight: 600;
     color: white;
-    background: rgba(138,184,255,0.85);
+    text-decoration: none;
+    background: var(--accent);
+    transition: background 0.25s ease;
 }
 
 .preview-btn:hover,
 .download-btn:hover {
-    background: #3C8DFF;
+    background: var(--accent-dark);
 }
 
 /* =========================
-   DARK MODE
+   RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-  #home {
-    background-image: url('https://i.ibb.co/yF67x32j/download-7.jpg');
-  }
+    .logo img {
+        width: 160px;
+    }
 }
-
