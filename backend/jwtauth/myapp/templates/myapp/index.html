@@ -5,90 +5,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Directory</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="{% static 'myapp/css/indexStyle.css' %}">
 </head>
 <body>
 
-    <!-- HEADER -->
-    <div class="header">
-        
-        <!-- Sidebar Toggle Button -->
-        <button class="menu-toggle" id="menuToggle">☰</button>
-        <!-- Logo -->
-        <a href="index.html" class="logo">
-            <img src="https://i.ibb.co/21KTgLmN/logo1.png" alt="Logo">
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">☰</button>
+
+    <a href="{% url 'myapp:index' %}" class="logo">
+        <img src="https://i.ibb.co/21KTgLmN/logo1.png" alt="Student Directory Logo">
+    </a>
+
+    <div class="header-actions">
+        <a href="{% url 'login' %}" class="login" title="Login">
+            <i class='bx bxs-user bx-md'></i>
         </a>
-        
-        <!-- Login Button -->
-        <div class="header-actions">
-            <a href="{% url 'login' %}" class="login">
-                 <i class='bx bxs-user bx-md'></i>
-            </a>
-
-            <button id="darkToggle" title="Toggle Dark Mode">🌙</button>
-        </div>
-
-        
+        <button id="darkToggle" title="Toggle Dark Mode">🌙</button>
     </div>
+</header>
 
+<!-- ================= SIDEBAR ================= -->
+<nav id="sideMenu" class="side-menu" aria-label="Sidebar Navigation">
+    <button class="close-btn" id="closeMenu">×</button>
 
-    <!-- SIDEBAR (KEEP OUTSIDE HEADER BUT ATTACHED VISUALLY) -->
-    <nav id="sideMenu" class="side-menu">
-        <button class="close-btn" id="closeMenu">×</button>
+    <ul>
+        <li><a href="{% url 'myapp:index' %}">Home</a></li>
+        <li><a href="{% url 'myapp:semester' %}">Semester</a></li>
+        <li><a href="{% url 'myapp:help' %}">Help</a></li>
+        <li><a href="{% url 'myapp:about' %}">About</a></li>
+        <li><a href="{% url 'myapp:contact' %}">Contact</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+    </ul>
+</nav>
 
-        <ul>
-            <li><a href="{% url 'myapp:index' %}">Home</a></li>
-      <li><a href="{% url 'myapp:semester' %}">Semester</a></li>
-      <li><a href="{% url 'myapp:help' %}">Help</a></li> 
-      <li><a href="{% url 'myapp:about' %}">About</a></li>
-      <li><a href="{% url 'myapp:contact' %}">Contact</a></li>
-      <li><a href="{% url 'login' %}">Login</a></li>
-        </ul>
-    </nav>
+<!-- ================= MAIN CONTENT ================= -->
+<main class="dashboard">
 
-
-
-    <!-- SECTION DROPDOWN (Top-Center) -->
-    <div class="top-center">
+    <!-- Semester Dropdown -->
+    <section class="top-center">
         <div class="dropdown">
-            <button class="dropbtn">Section</button>
+            <button class="dropbtn" id="semesterBtn">
+                Semester
+                <i class='bx bx-chevron-down'></i>
+            </button>
 
-            <div class="dropdown-content">
-                <a href="#">Semester 1</a>
-                <a href="#">Semester 2</a>
-                <a href="#">Semester 3</a>
-                <a href="#">Semester 4</a>
-                <a href="#">Semester 5</a>
-                <a href="#">Semester 6</a>
-                <a href="#">Semester 7</a>
-                <a href="#">Semester 8</a>
+            <div class="dropdown-content" id="semesterMenu">
+                <a href="#" data-sem="1">Semester 1</a>
+                <a href="#" data-sem="2">Semester 2</a>
+                <a href="#" data-sem="3">Semester 3</a>
+                <a href="#" data-sem="4">Semester 4</a>
+                <a href="#" data-sem="5">Semester 5</a>
+                <a href="#" data-sem="6">Semester 6</a>
+                <a href="#" data-sem="7">Semester 7</a>
+                <a href="#" data-sem="8">Semester 8</a>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Category Buttons -->
+    <section class="main-buttons">
+        <button class="show-btn" data-type="books">📚 Books</button>
+        <button class="show-btn" data-type="assignments">📝 Assignments</button>
+        <button class="show-btn" data-type="notes">📖 Notes</button>
+        <button class="show-btn" data-type="attendance">✅ Attendance</button>
+    </section>
 
-    
-    <!-- Main Buttons -->
-    <div class="main-buttons">
-        <button class="show-btn" data-type="books">Books</button>
-        <button class="show-btn" data-type="assignments">Assignments</button>
-        <button class="show-btn" data-type="notes">Notes</button>
-        <button class="show-btn" data-type="attendance">Attendance</button>
-    </div>
+    <!-- Cards Output -->
+    <section class="content-area">
+        <div id="cardContainer" class="card-container">
+            <!-- Cards injected by JS -->
+        </div>
+    </section>
 
-<!-- DISPLAY AREA -->
-<div id="cardContainer" class="card-container"></div>
+</main>
 
-
-
-
-
-
-
-
-
-
-    <script src="{% static 'myapp/js/indexScript.js' %}"></script>
+<!-- ================= SCRIPT ================= -->
+<script src="{% static 'myapp/js/indexScript.js' %}"></script>
 </body>
 </html>
