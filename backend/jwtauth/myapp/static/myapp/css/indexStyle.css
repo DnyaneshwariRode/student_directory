@@ -342,3 +342,28 @@ body {
         width: 160px;
     }
 }
+
+
+
+
+
+
+:root {
+    /* GLASS BACKGROUNDS */
+    --glass-bg: rgba(112, 76, 134, 0.85);        /* #704c86 */
+    --glass-bg-strong: rgba(112, 76, 134, 0.95); /* #704c86 */
+    --glass-border: rgba(255, 255, 255, 0.2);
+
+    /* TEXT */
+    --text-light: #FFFFFF;
+
+    /* ACCENT COLORS */
+    --accent: #c17a76;
+    --accent-dark: #91537a;
+
+    /* Z-INDEX LAYERS */
+    --z-base: 1;
+    --z-dropdown: 1000;
+    --z-sidebar: 2000;
+    --z-header: 3000;
+}
