@@ -7,7 +7,7 @@
     /* GLASS BACKGROUNDS */
     --glass-bg: rgba(112, 76, 134, 0.85);        /* #704c86 */
     --glass-bg-strong: rgba(112, 76, 134, 0.95); /* #704c86 */
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(112, 76, 134, 0.98);
 
     /* TEXT */
     --text-light: #FFFFFF;
@@ -40,7 +40,8 @@ html, body {
 
 body {
     color: var(--text-light);
-    background: url("https://i.ibb.co/yF67x32j/download-7.jpg") center / cover no-repeat;
+    /* background: url("https://i.ibb.co/yF67x32j/download-7.jpg") center / cover no-repeat; */
+    background: #704c86;
 }
 
 /* =========================
