@@ -40,7 +40,7 @@ html, body {
 
 body {
     color: var(--text-light);
-    /* background: url("https://i.ibb.co/yF67x32j/download-7.jpg") center / cover no-repeat; */
+    background: url("C:\Users\HP\OneDrive\Desktop\student_directory\student_directory\backend\jwtauth\myapp\static\myapp\images\download.jpg") center / cover no-repeat;
     background: #704c86;
 }
 
@@ -83,7 +83,7 @@ body {
 
 .menu-toggle,
 #darkToggle {
-    background: rgba(255,255,255,0.15);
+    background: rgba(112, 76, 134, 0.85);
     border: none;
     color: white;
     cursor: pointer;
