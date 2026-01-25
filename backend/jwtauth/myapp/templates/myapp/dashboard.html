@@ -131,24 +131,53 @@
 </div>
 
 
-<script src="{% static 'myapp/js/dashboard.js' %}"></script>
-<script src="{% static 'myapp/js/indexScript' %}"></script>
 
 <!-- ===== BASIC UI JS ===== -->
 <script>
-    // Sidebar
-    const menuToggle = document.getElementById("menuToggle");
-    const sideMenu = document.getElementById("sideMenu");
-    const closeMenu = document.getElementById("closeMenu");
-
-    menuToggle.onclick = () => sideMenu.classList.add("active");
-    closeMenu.onclick = () => sideMenu.classList.remove("active");
-
-    // Dark mode
-    document.getElementById("darkToggle").onclick = () => {
-        document.body.classList.toggle("dark");
-    };
+    // ================================
+    //  JWT Authentication Check
+    // ================================
+    const token = localStorage.getItem("access");
+    const userInfo = document.getElementById("userInfo");
+    const logoutBtn = document.getElementById("logoutBtn");
+    
+    // If no token, redirect to login
+    if (!token) {
+        window.location.href = "/login/";
+    }
+    
+    // Fetch dashboard data from API
+    fetch("/api/dashboard/", {
+        headers: {
+            "Authorization": "Bearer " + token
+        }
+    })
+    .then(res => {
+        if (res.status === 401) {
+            // Token expired or invalid
+            localStorage.clear();
+            window.location.href = "/login/";
+        }
+        return res.json();
+    })
+    .then(data => {
+        userInfo.innerText = `Welcome, ${data.user.username} (${data.user.email})`;
+    })
+    .catch(err => {
+        console.error(err);
+        userInfo.innerText = "Error loading user info";
+    });
+    
+    // ================================
+    //  Logout Functionality
+    // ================================
+    logoutBtn.addEventListener("click", () => {
+        localStorage.clear();
+        window.location.href = "/login/";
+    });
 </script>
+<script src="{% static 'myapp/js/dashboard.js' %}"></script>
+<script src="{% static 'myapp/js/indexScript' %}"></script>
 
 </body>
 </html>
