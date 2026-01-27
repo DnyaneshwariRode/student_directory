@@ -9,7 +9,7 @@
 /* Animated Gradient Background */
 body {
     color: #1E3A5F;
-    background: linear-gradient(135deg, #E6F4FF, #D0E8FF, #61A5FF);
+    background: linear-gradient(135deg, #E6F4FF, #D0E8FF, #a6768d);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
@@ -35,7 +35,7 @@ body {
 .particles span {
     position: absolute;
     display: block;
-    background: rgba(255, 255, 255, 0.5);
+    background: #91537a;
     border-radius: 50%;
     animation: float linear infinite;
 }
@@ -69,7 +69,7 @@ body {
 .about-section p, .team-item p { margin-bottom: 15px; }
 
 .team-item {
-    background: rgba(230,244,255,0.5);
+    background: #8e5391;
     margin: 15px 0;
     padding: 15px;
     border-radius: 15px;
@@ -81,7 +81,7 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-hr { border: none; border-top: 2px solid #61A5FF; margin: 20px 0; }
+hr { border: none; border-top: 2px solid #a6768d; margin: 20px 0; }
 
 h2, h3 { color: #3C8DFF; font-weight: 600; }
 

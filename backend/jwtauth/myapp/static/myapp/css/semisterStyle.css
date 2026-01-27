@@ -2,9 +2,9 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #E6F4FF;
+    background: #c17a76;
     margin: 0;
-    color: #1E3A5F;
+    color: #704c86;
 }
 
 .container {
@@ -25,7 +25,7 @@ body {
 }
 
 .card {
-    background: #D0E8FF;
+    background: #c17a76;
     border-radius: 12px;
     padding: 20px;
     width: 48%;
@@ -51,7 +51,7 @@ body {
     height: 90px;         /* control height */
     border-radius: 50%;   /* makes image circular */
     object-fit: cover;    /* prevents distortion */
-    border: 2px solid #61A5FF;
+    border: 2px solid #91537a;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
@@ -139,7 +139,7 @@ body {
 .card h2 {
     font-size: 22px;
     font-weight: 700;
-    color: #0A3D91;
+    color: #704c86;
     margin-bottom: 15px;
     position: relative;
 }
@@ -148,7 +148,7 @@ body {
     content: "";
     width: 40px;
     height: 4px;
-    background: #3C8DFF;
+    background: #91537a;
     display: block;
     margin: 8px auto 0;
     border-radius: 5px;
@@ -167,7 +167,7 @@ body {
 
 .card:hover {
     box-shadow:
-        0 18px 40px rgba(60,141,255,0.6);
+        0 18px 40px #91537a;
 }
 
 
@@ -176,8 +176,8 @@ body {
 .card:hover {
     transform: translateY(-8px) scale(1.06);
     box-shadow:
-        0 20px 40px rgba(60,141,255,0.6),
-        0 0 25px rgba(97,165,255,0.5);
+        0 20px 40px #91537a,
+        0 0 25px #a7628e;
 }
 
 
@@ -189,7 +189,7 @@ body {
 
 .person:hover img {
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(60,141,255,0.6);
+    box-shadow: 0 0 15px #91537a;
 }
 
 
@@ -215,7 +215,7 @@ body {
 
 .person {
     padding: 8px 0;
-    border-bottom: 1px dashed rgba(60,141,255,0.3);
+    border-bottom: 1px dashed #91537a;
 }
 
 .person:last-child {

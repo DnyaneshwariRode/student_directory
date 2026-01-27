@@ -106,7 +106,7 @@ body {
 
 .menu-toggle:hover,
 #darkToggle:hover {
-    background: rgba(255,255,255,0.25);
+    background: rgba(112, 76, 134, 0.85);
 }
 
 .header-actions {
@@ -167,20 +167,10 @@ body {
 }
 
 #sideMenu a:hover {
-    background: rgba(255,255,255,0.15);
+    background: rgba(112, 76, 134, 0.85);
 }
 
-/* =========================
-   DASHBOARD
-========================= */
-.dashboard {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-}
+
 
 /* =========================
    DROPDOWN
@@ -231,7 +221,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background: rgba(255,255,255,0.15);
+    background: rgba(112, 76, 134, 0.85);
 }
 
 .dropdown-content.show {
