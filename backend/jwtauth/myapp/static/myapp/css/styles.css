@@ -24,7 +24,7 @@ body {
     display: flex;
     justify-content: center;      /* Logo centered */
     align-items: center;
-    background: #3C8DFF; /* Primary Blue with transparency */
+    background: #704c86; /* Primary Blue with transparency */
     backdrop-filter: blur(12px);
     border-bottom: 2px solid rgba(255,255,255,0.5);
 
@@ -51,7 +51,7 @@ body {
     position: fixed;
     top: 15px;
     left: 20px;
-    background: #61A5FF;
+    background: #704c86;
     color: white;
     border: none;
     padding: 10px 14px;
@@ -65,7 +65,7 @@ body {
 }
 
 .menu-toggle:hover {
-    background: #3C8DFF;
+    background: #704c86;
     transform: scale(1.1);
 }
 
@@ -73,7 +73,7 @@ body {
 #sideMenu {
     width: 250px;
     height: 100vh;
-    background: #61A5FF;
+    background: #704c86;
     padding-top: 60px;
 
     position: fixed;
@@ -118,7 +118,7 @@ body {
 }
 
 #sideMenu ul li a:hover {
-    background: #3C8DFF;
+    background: #493157;
     padding-left: 35px;
 }
 
@@ -214,7 +214,7 @@ form{
 .btn {
   width: 100%;
   height: 48px;
-  background: #3C8DFF;
+  background: #704c86;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, -1);
   border: none;
@@ -257,7 +257,7 @@ form{
   left: -250%;
   width: 300%;
   height: 100%;
-  background: #3C8DFF;
+  background: #704c86;
   border-radius: 150px;
   z-index: 2;
   transition: 1.8s ease-in-out;

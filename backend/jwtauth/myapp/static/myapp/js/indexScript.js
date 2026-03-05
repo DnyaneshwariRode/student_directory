@@ -54,24 +54,6 @@ document.querySelectorAll(".show-btn").forEach(btn => {
     });
 });
 
-function showCards(type) {
-    cardContainer.innerHTML = ""; // Clear previous cards
-
-    let title = "";
-    let count = 5;
-
-    if (type === "books") title = "Book";
-    else if (type === "assignments") title = "Assignment";
-    else if (type === "notes") title = "Note";
-    else title = "Item";
-
-    for (let i = 1; i <= count; i++) {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerText = `${title} ${i}`;
-        cardContainer.appendChild(card);
-    }
-}
 
 
 
@@ -104,47 +86,7 @@ semesterLinks.forEach((sem, index) => {
 
 
 
-// logic for cards
 
-function showCards(type) {
-
-    if (!selectedSemester) {
-        alert("Please select a semester first!");
-        return;
-    }
-
-    cardContainer.innerHTML = ""; // Clear previous cards
-
-    let title = "";
-    let count = 5;
-
-    if (type === "books") title = "Book";
-    else if (type === "assignments") title = "Assignment";
-    else if (type === "notes") title = "Note";
-    else if (type === "attendance") {
-        title = "Attendance";
-        count = 1; // ONLY ONE CARD
-    } 
-    else title = "Item";
-
-    for (let i = 1; i <= count; i++) {
-        const card = document.createElement("div");
-        card.className = "card";
-        
-        if (type === "attendance") {
-            card.innerText = `${title} (Sem ${selectedSemester})`;
-        } else {
-              card.innerHTML = `
-        <i class='bx bx-book'></i>
-        ${title} ${type === "attendance" ? "" : i} <br>
-        <span style="font-size:14px; opacity:0.8;">Sem ${selectedSemester}</span>
-        `;
-
-        }
-
-        cardContainer.appendChild(card);
-    }
-}
 
 
 
